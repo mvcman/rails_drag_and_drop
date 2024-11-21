@@ -1,0 +1,16 @@
+<%= turbo_frame_tag project, class: "" do %>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= project.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= project.description %>
+  </p>
+  <p>
+    <%= link_to "Show this project", project, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+     <%= link_to "Edit this project", edit_project_path(project), data: { turbo: false }, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+     <%= button_to "Destroy", project_path(project), method: :delete, class: "py-1 px-4 border border-red-600 bg-red-600 text-sm sm:text-md text-white rounded-md font-inter font-medium cursor-pointer" %>
+  </p>
+<% end %>

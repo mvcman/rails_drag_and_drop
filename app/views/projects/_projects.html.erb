@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "projects", class: "min-w-full" do %>
+    <% projects.each do |project| %>
+        <%= render "projects/draggable", project: project %>
+    <% end %>
+<% end %>

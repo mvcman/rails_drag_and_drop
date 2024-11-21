@@ -1,0 +1,19 @@
+<%= content_for :header do %>
+      <h2>This is my header</h2>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: "" %>
+<% end %>
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Projects" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Projects</h1>
+    <%= link_to "New project", new_project_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <%= turbo_stream_from "projects" %>
+
+  <%= render "projects", projects: @projects %>

@@ -1,0 +1,4 @@
+<% dragActions = "dragstart->drag#dragStart dragover->drag#dragOver dragenter->drag#dragEnter drop->drag#drop dragend->drag#dragEnd" %>
+<%= content_tag(:div, class: "draggable border", draggable: true, data: { controller: "drag", action: dragActions, resource_id: project.id, url: "/drag/project", parent: "projects" }) do %>
+    <%= render project %>
+<% end %>
